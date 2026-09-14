@@ -1,0 +1,64 @@
+Distance dependence: eq. (1) plot or values for comparison of "point-dipole" to TrESP etc.
+
+- дипольный момент перехода 8.3909D (3.3012 a.u.): Fig. 7
+
+Единое название или обозначение для направлений сдвига.
+
+- DxA / DxB или Dxpyrr / Dxmeso
+
+Eg & Eu привести в соответствие Ag, Bu etc. (использовать абелеву группу С2h: в основном для Fig. 7, можно еще Table S3-S4)
+
+- ... Eg (Ag & Bg in shifted dimers' C2h representation)
+- дополнить где - то коммент о симметрии и соотв. им представлениях, или полностью перейти на C2h representation
+
+
+Определения excitonic splitting, excitonic coupling, Coulombic coupling, short-range coupling и их вычисление из TDDFT
+
+
+
+Ограничения используемых допущений nearest-neighbour tight-binding model:
+
+1) собственно tight-binding модель (применима, если межмолекулярные взаимодействия существенно слабее внутримолекулярных)
+
+это предельный случай, описывающий системы без делокализации (парные взаимодействия аддитивны), в противоположность модели свободного электрона, описывающей системы с идеальной делокализацией. очевидно, реальные системы занимают промежуточное положение, в зависимости от exciton binding energy 
+
+- The tight-binding framework represents a limiting case for systems with localized excitations, whereas the non-zero through-space \(\pi \)-\(\pi \) orbital overlap in ZnPc stacks introduces a minor degree of electron delocalization. This delocalization transitions the system behavior toward band-like transport typical of fully conjugated structures,\({}^{39,43}\) which cannot be comprehensively described solely by traditional localized exciton interaction models and limits the quantitative accuracy of the tight-binding approximation.
+
+в предельном случае делокализованных систем ΔE ~ 1/N и будет нелинейной в координатах ΔE vs. cos[π / (N + 1)]
+
+2) nearest-neighbour (short-range затухает экспоненциально, а расстояние до next-nearest neighbour в 2 раза больше)
+
+- While short-range interactions decay exponentially and are well-restricted to the nearest neighbors, the long-range Coulombic coupling decays as \(1/r\) and ideally requires accounting for next-nearest-neighbor interactions.
+
+next-nearest neighbour можно учесть как квадратичную составляющую при экстраполяции (но нужно считать кластеры большего размера) в координатах ΔE vs. cos[π / (N + 1)] (R^2 ~ 0.998 линейной регрессии говорит об их малом вкладе)
+
+3) inter-stack interaction: расстояние между центрами диполей велико для кулоновского приближения. перекрывание орбиталей незначительно, но не равно нулю, а ближайших соседей несколько
+
+для учета нужно считать кластеры 2x2, 2x3, 3x2, 2x2x2 etc., чтобы учесть всех соседей (поскольку их несколько)
+
+
+
+Выдержки из текущей версии статьи:
+
+According to a simplified tight-binding model including only the nearest-neighbour interactions between ZnPc molecules,39,40 the band dispersion (width of HOMO or LUMO band) for an N-meric stack is described by the following equation (2).
+
+ΔE = ± 2J cos[π / (N + 1)]  (2)
+
+As it was shown by Bredas et al., the HOMO and LUMO band edges are also linear with respect to cos[π/(N+1)] for phthalocyanines and other molecular semiconductors.39 Similar extrapolation was also applied for optical gaps of oligothiophenes.72
+
+For a more quantitative description, the next-nearest-neighbour and the inter-stack couplings should also be considered.41,73
+
+39	J. L. Bredas, D. A. Da Silva Filho, J. Cornil and J. P. Calbert, PNAS, 2002, 99, 5804.
+40	S. Yanagisawa, I. Hamada, K. Yamauchi, T. Oguchi and T. Inaoka, Phys. Rev. B, 2014, 90, 245141.
+41	L. P. Doctor, F. Ziegs, B. Büchner, M. Naumann, A. Popov and M. Knupfer, J. Phys. Chem. C, 2021, 125, 12398.
+72	R. E. Larsen, J. Phys. Chem. C, 2016, 120, 9650.
+73	R.P. Fornari, P. Rowe, D. Padula and A. Troisi, J. Chem. Theory Comput., 2017, 13, 3754.
+
+
+However, several inherent limitations of this idealized nearest-neighbour tight-binding approach should be addressed explicitly. First, the tight-binding framework represents a limiting case for systems with localized excitations. The non-zero through-space $\pi$-$\pi$ orbital overlap in ZnPc stacks introduces a minor degree of electron delocalization, transitioning the system behavior toward a band-like regime.${}^{39,43}$ In heavily delocalized systems, the energy gap scaling typically deviates from the linear $\cos[\pi/(N+1)]$ dependence and shifts toward a particle-in-a-box type $1/N$ behavior. Second, while short-range exchange and overlap interactions decay exponentially and are tightly restricted to the nearest neighbors, long-range Coulombic coupling scales as $1/r$ and theoretically necessitates the inclusion of next-nearest-neighbour (NNN) terms. Within the finite series up to $N=5$, the NNN contributions would manifest as a quadratic correction to Equation (2). Nevertheless, the excellent linearity of the experimental and calculated data in $\cos[\pi/(N+1)]$ coordinates ($R^2 \sim 0.998$) underscores the minor contribution of these higher-order effects within the investigated size range, validating the truncation of the model.
+Finally, the one-dimensional nearest-neighbour approximation intrinsically neglects inter-stack interactions. In a realistic molecular aggregate, each ZnPc unit is surrounded by multiple adjacent neighbors across neighboring columns. Although the inter-stack distance is sufficiently large to weaken the Coulombic coupling and minimize orbital overlap, a comprehensive quantitative description would require simulating multidimensional clusters (e.g., $2\times2$, $2\times3$, or $2\times2\times2$ configurations) to explicitly map the multi-center interaction network.${}^{41,73}$
+
+However, this 1D nearest-neighbour approximation assumes strict additivity of pairwise interactions, which strictly holds only in the perturbative limit where intermolecular charge-transfer (CT) states remain high-energy virtual states.${}^{43}$ Significant $\pi$-$\pi$ orbital overlap can reduce the exciton binding energy, inducing a transition toward a band-like regime where $\Delta E$ scales non-linearly as $1/N$ instead of $\cos[\pi/(N+1)]$. Furthermore, while short-range interactions decay exponentially, long-range Coulombic coupling scales as $1/r$, theoretically introducing next-nearest-neighbour terms. Nevertheless, the excellent linearity of our oligomer data ($R^2 \sim 0.998$) for $N \le 5$ proves that such higher-order effects are negligible within this size range, validating the truncation. Finally, a fully quantitative description would require transitioning from a 1D chain to multidimensional clusters (e.g., $2\times2$ or $2\times3$) to explicitly map weak but multi-center inter-stack interactions.${}^{41,73}$"
+
+    Equation (2) is a simplified one-dimensional nearest-neighbour tight-binding model. It neglects the minor delocalization caused by weak π–π overlap, next-nearest-neighbour coupling, and inter-stack interactions. The short-range superexchange is indeed dominated by nearest neighbours, whereas the long-range Coulombic coupling decays only as 1/r1/r. In this tight-binding form, next-nearest-neighbour coupling would add a 2J2cos⁡[2π/(N+1)]2J2​cos[2π/(N+1)] term to the shift relative to the monomer; the nearly linear ΔEΔE vs. cos⁡[π/(N+1)]cos[π/(N+1)] dependence (R2≈0.998R2≈0.998) therefore indicates that its contribution is small. Inter-stack interactions are also expected to give smaller corrections and would require 2D/3D cluster or periodic calculations. Thus, the extrapolated infinite-stack splitting should be regarded as a semiquantitative one-dimensional nearest-neighbour estimate.
+

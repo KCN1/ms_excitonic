@@ -1,0 +1,53 @@
+Distance dependence: eq. (1) plot or values for comparison of "point-dipole" to TrESP etc.
+
+- дипольный момент перехода 8.3909D (3.3012 a.u.): Fig. 7
+
+Единое название или обозначение для направлений сдвига.
+
+- DxA / DxB или Dxpyrr / Dxmeso
+
+Eg & Eu привести в соответствие Ag, Bu etc. (использовать абелеву группу С2h: в основном для Fig. 7, можно еще Table S3-S4)
+
+- ... Eg (Ag & Bg in shifted dimers' C2h representation)
+- дополнить где - то коммент о симметрии и соотв. им представлениях, или полностью перейти на C2h representation
+
+
+Определения excitonic splitting, excitonic coupling, Coulombic coupling, short-range coupling и их вычисление из TDDFT
+
+
+
+Ограничения используемых допущений nearest-neighbour tight-binding model:
+
+- собственно tight-binding модель (применима, если межмолекулярное взаимодействие существенно слабее внутримолекулярного)
+
+это предельный случай, описывающий системы без делокализации, в противоположность модели свободного электрона, описывающей системы с идеальной делокализацией. очевидно, реальные системы занимают промежуточное положение, в зависимости от exciton binding energy
+
+- nearest-neighbour (short-range затухает экспоненциально, а расстояние до next-nearest neighbour в 2 раза больше)
+
+next-nearest neighbour можно учесть как квадратичную составляющую при экстраполяции (но нужно считать больше N)
+
+- inter-stack interaction: расстояние между центрами диполей велико для кулоновского приближения. перекрывание орбиталей незначительно, но не равно нулю, а ближайших соседей несколько
+
+для учета нужно считать кластеры 2x2, 2x3, 3x2, 2x2x2 etc. (поскольку ближайших соседей будет несколько)
+
+However, the limitations of the nearest-neighbor tight-binding model applied to these finite oligomers (\(N=1\dots5\)) should be explicitly outlined. First, the tight-binding framework represents a limiting case for systems with localized excitations, whereas the non-zero through-space \(\pi \)-\(\pi \) orbital overlap in ZnPc stacks introduces a minor degree of electron delocalization. Second, while short-range interactions decay exponentially and are well-restricted to the nearest neighbors, the long-range Coulombic coupling decays as \(1/r\) and ideally requires accounting for next-nearest-neighbor interactions. 
+
+Secondly, t assumes that the coupling is strictly localized between nearest neighbors. In a real crystal lattice, the finite-size truncation and the omission of long-range electrostatic contributions across multiple unit cells may lead to an underestimation of the total band dispersion.
+
+Finally, an inherent limitation of the 1D tight-binding extrapolation lies in the blurring boundary between localized molecular aggregates and extended \(\pi \)-conjugated systems.\({}^{39}\) Due to the noticeable spatial \(\pi \)-\(\pi \) orbital overlap in close-packed ZnPc stacks, a degree of through-space electron delocalization occurs. This delocalization transitions the system behavior toward band-like transport typical of fully conjugated structures,\({}^{39,43}\) which cannot be comprehensively described solely by traditional localized exciton interaction models (such as Coulombic and short-range exchange/superexchange components) and limits the quantitative accuracy of the nearest-neighbor approximation.»
+
+
+
+According to a simplified tight-binding model including only the nearest-neighbour interactions between ZnPc molecules,39,40 the band dispersion (width of HOMO or LUMO band) for an N-meric stack is described by the following equation (2).
+
+As it was shown by Bredas et al., the HOMO and LUMO band edges are also linear with respect to cos[π/(N+1)] for phthalocyanines and other molecular semiconductors.39 Similar extrapolation was also applied for optical gaps of oligothiophenes.72
+
+
+For a more quantitative description, the next-nearest-neighbour and the inter-stack couplings should also be considered.41,73
+
+
+39	J. L. Bredas, D. A. Da Silva Filho, J. Cornil and J. P. Calbert, PNAS, 2002, 99, 5804.
+40	S. Yanagisawa, I. Hamada, K. Yamauchi, T. Oguchi and T. Inaoka, Phys. Rev. B, 2014, 90, 245141.
+41	L. P. Doctor, F. Ziegs, B. Büchner, M. Naumann, A. Popov and M. Knupfer, J. Phys. Chem. C, 2021, 125, 12398.
+72	R. E. Larsen, J. Phys. Chem. C, 2016, 120, 9650.
+73	R.P. Fornari, P. Rowe, D. Padula and A. Troisi, J. Chem. Theory Comput., 2017, 13, 3754.
